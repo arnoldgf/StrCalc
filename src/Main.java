@@ -12,7 +12,6 @@ public class Main {
         expression = expression.replace("\"", "");
         String[] operands = expression.split("[+\\-*/]");
         operator = detectOperation(expression);
-        if(operands[1].length() > 10 || operands[1].length() < 0) throw new Exception("Чисел должно быть от 0 до 10!");
         if(operator.equals("+")){
             System.out.println(operands[0] + operands[1]);
         }
@@ -29,7 +28,8 @@ public class Main {
         }
         else if(operator.equals("*")) {
             int num = Integer.parseInt(operands[1]);
-            if(operands[1].length() < 10 && operands[1].length() > 0) throw new Exception("Чисел должно быть от 0 до 10!");
+            int num1 = Integer.parseInt(operands[1]);
+            if(num1 > 10 || num1 < 0) throw new Exception("Чисел должно быть от 0 до 10!");
             for(int i = 0; i < num; i++){
                 System.out.print(operands[0]);
             }
@@ -37,7 +37,8 @@ public class Main {
 
         else {
             int len = operands[0].length()/Integer.parseInt(operands[1]);
-            if(operands[1].length() < 10 && operands[1].length() > 0) throw new Exception("Чисел должно быть от 0 до 10!");
+            int num1 = Integer.parseInt(operands[1]);
+            if(num1 > 10 || num1 < 0) throw new Exception("Чисел должно быть от 0 до 10!");
             result = operands[0].substring(0, len);
             System.out.println(result);
         }
